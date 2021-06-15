@@ -1,0 +1,14 @@
+<mat-toolbar color="basic">
+    <span><a  mat-icon-button [routerLink]="['/']" routerLinkActive="router-link-active" *ngIf="!loggedIn" >Home</a></span>
+    <a style="margin-left: 30px;" mat-icon-button [routerLink]="['/invoices']" *ngIf="loggedIn" >Invoice List</a>
+<span class="example-spacer"></span>
+<a *ngIf="!loggedIn" mat-icon-button [routerLink]="['/login']"  >Login</a>
+
+<span *ngIf="!loggedIn" >|</span>
+
+<span style="margin-right: 44%;"  *ngIf="loggedIn" >Welcome  {{getUsername()}}</span>
+
+<a *ngIf="!loggedIn" mat-icon-button [routerLink]="['/signup']"  >Register</a>
+
+<a *ngIf="loggedIn" (click)="logoutUser()" mat-icon-button>Logout</a>
+</mat-toolbar>

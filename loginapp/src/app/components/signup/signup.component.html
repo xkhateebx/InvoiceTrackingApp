@@ -1,0 +1,122 @@
+<div style="background-image: url(../../../assets/reg.jpg); height: 850px; margin-top: 0px; display: block;" class="bootstrap-wrapper">
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3">
+
+
+                <div class="container text-center">
+
+                    <img src="../../../assets/logo.png" style="width: 100px; margin-left: 40%; margin-top: 0px;" class="img-fluid" alt="">
+
+                </div>
+
+
+
+                <h1 class="text-center">Register here !</h1>
+
+                    <form
+                    *ngIf="!isSuccessful"
+                    name="form"
+                    (ngSubmit)="f.form.valid && formSubmit()"
+                    #f="ngForm"
+                    novalidate
+
+                    >
+                        <!--Username field-->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input
+                            type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel"
+          matInput
+                            matInput placeholder="Enter here">
+                          </mat-form-field>
+                          <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                            <div *ngIf="username.errors.required">Username is required</div>
+                            <div *ngIf="username.errors.minlength">
+                              Username must be at least 3 characters
+                            </div>
+                            <div *ngIf="username.errors.maxlength">
+                              Username must be at most 20 characters
+                            </div>
+                          </div>
+                  
+                          
+                          <!--Email field-->
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            [(ngModel)]="form.email"
+                            required
+                            email
+                            #email="ngModel"
+                            matInput
+                  >
+                          </mat-form-field>
+                          <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                            <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">
+                              Email must be a valid email address
+                            </div>
+                          </div>
+                  
+
+                        <!--Password field-->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input
+                            type="password"
+                            class="form-control"
+                            name="password"
+                            [(ngModel)]="form.password"
+                            required
+                            minlength="6"
+                            #password="ngModel"
+
+                            matInput placeholder="Enter here">
+                          </mat-form-field>
+                          <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                            <div *ngIf="password.errors.required">Password is required</div>
+                            <div *ngIf="password.errors.minlength">
+                              Password must be at least 6 characters
+                            </div>
+                          </div>
+                  
+
+
+
+                          <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary">Register</button>
+                            <button type="reset" style="margin-left:20px ;" mat-raised-button color="warn">Reset</button>
+
+                          </div>
+                          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                            Signup failed!<br />{{ errorMessage }}
+                          </div>
+                    
+
+                    </form>
+                    <div class="alert alert-success" *ngIf="isSuccessful">
+                      Your registration is successful!
+                    </div>
+                
+                    <span>Back to login? <a [routerLink]="['/login']">Click here!</a></span>
+
+            </div>
+        </div>
+    </div>
+
+</div>

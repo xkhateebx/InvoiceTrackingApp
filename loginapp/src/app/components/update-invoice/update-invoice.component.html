@@ -1,0 +1,42 @@
+<div class="creates container text-center mt">
+    <h1>Update Invoice</h1>
+    <form #userForm ="ngForm" (ngSubmit) = "onSubmit()" >
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Customer Name</mat-label>
+            <input
+            [(ngModel)] = "invoice.customerName" 
+            type="text"
+            name="customerName"
+            required
+             matInput placeholder="Enter here">
+          </mat-form-field>                  <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Invoice Number</mat-label>
+            <input
+            [(ngModel)] = "invoice.invoiceNumber" 
+            type="number"
+            name="invoiceNumber"
+            required
+             matInput placeholder="Enter here">
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Total Price</mat-label>
+            <input
+            [(ngModel)] = "invoice.totalPrice" 
+            type="number"
+            name="totalPrice"
+            required
+             matInput placeholder="Enter here">
+          </mat-form-field>                 <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Invoice Date</mat-label>
+            <input
+            [(ngModel)] = "invoice.invoiceDate" 
+            type="date"
+            name="invoiceDate"
+            required
+             matInput placeholder="Enter here">
+          </mat-form-field>
+        <br>
+    
+        <button [disabled]="userForm.invalid"  mat-raised-button color="primary">Update</button>
+    </form>
+    </div>

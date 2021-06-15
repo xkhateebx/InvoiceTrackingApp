@@ -1,0 +1,9 @@
+.main{
+  position:fixed;
+  bottom:0px;
+  height: 40px;
+  width:100%;
+  font-size: 13px;
+  justify-content: center;
+  background-color: #f2f2f2;
+  }

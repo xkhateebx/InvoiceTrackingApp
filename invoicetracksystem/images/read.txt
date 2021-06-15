@@ -1,0 +1,4 @@
+restfull api
+3 tier arciticture
+HTTP Response code
+IDEM Potant

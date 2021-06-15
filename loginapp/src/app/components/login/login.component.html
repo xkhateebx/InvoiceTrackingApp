@@ -1,0 +1,57 @@
+<div style="background-image: url(../../../assets/reg.jpg); height: 850px; margin-top: 0px; display: block;" class="bootstrap-wrapper">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                <div class="container text-center">
+
+                        <img style="width: 100px; margin-left: 40%;"
+                          class="img-fluid"
+                        src="/assets/logo.png"
+                         alt="">
+
+                </div>
+
+                <h1 class="text-center">Login here !</h1>
+                <form (ngSubmit)="formSubmit()">
+                    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                    <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+          
+
+                    <mat-form-field class="full-width" appearance=outline>
+                        <mat-label>Username</mat-label>
+                        <input
+                        name="username"
+                        [(ngModel)]="loginData.username" 
+                        required type="text" matInput/>
+                    </mat-form-field>
+                    <mat-form-field class="full-width"appearance=outline>
+                        <mat-label>Password</mat-label>
+                        <input 
+                        name="password"
+                        [(ngModel)]="loginData.password" required
+                         type="password" matInput/>
+                    </mat-form-field>
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Login</button>
+                        <button 
+                        style="margin-left: 10px;"
+                         type="reset"
+                          mat-raised-button
+                           color="warn"
+                           >Reset</button>
+
+                    </div>
+                    <br>
+
+                    <span>Don't Have an Account? <a [routerLink]="['/signup']">Click here!</a></span>
+
+                </form>
+                <br/>
+                <!-- <p class="mt">{{user | json}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
